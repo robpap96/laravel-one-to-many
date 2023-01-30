@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 use App\Models\Type;
 
 class TypeSeeder extends Seeder
@@ -15,7 +17,9 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        Type::truncate();
+        // Schema::disableForeignKeyConstraints();
+        // Type::truncate();
+        // Schema::enableForeingKeyConstraints();
 
         $types = ['Frontend','Backend','Devops'];
         foreach ($types as $type) {

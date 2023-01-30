@@ -21,7 +21,9 @@
             <select class="form-select" name="type_id" id="type_id">
                 <option value="">Nessun Tipo</option>
                 @foreach ($types as $type)
-                    <option value="{{$type->id}}">Two</option>
+                    <option value="{{$type->id}}">Frontend</option>
+                    <option value="{{$type->id}}">Backend</option>
+                    <option value="{{$type->id}}">Devops</option>
                 @endforeach
             </select>
         </div>
