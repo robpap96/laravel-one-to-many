@@ -18,6 +18,8 @@ class ProjectSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        Project::truncate();
+
         for ($i=0; $i < 20; $i++) { 
             $new_project = new Project();
             $new_project->name = $faker->sentence(2);

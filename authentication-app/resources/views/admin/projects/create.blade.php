@@ -17,6 +17,15 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label for="type_id">Tipo</label>
+            <select class="form-select" name="type_id" id="type_id">
+                <option value="">Nessun Tipo</option>
+                @foreach ($types as $type)
+                    <option value="{{$type->id}}">Two</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="content" class="form-label">Contenuto*</label>
             <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="10">{{old('content')}}</textarea>
             @error('content')
