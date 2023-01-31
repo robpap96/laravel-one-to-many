@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TypeController extends Controller
 {
@@ -17,7 +19,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+
+        return view('admin.type.index', compact('types'));
     }
 
     /**
@@ -27,7 +31,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.type.create');
     }
 
     /**
@@ -38,7 +42,14 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $new_type = new Type();
+        $new_type->fill($data);
+        // $new_type->slug = Str::slug($new_type->project_type);
+        $new_type->save();
+
+        return redirect()->route('admin.type.index')->with('message', "Progetto $new_type->project_type aggiunto con successo!");
     }
 
     /**
@@ -49,7 +60,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.type.show', compact('type'));
     }
 
     /**
@@ -60,7 +71,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.type.edit', compact('type'));
     }
 
     /**
@@ -72,7 +83,14 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $data = $request->validated();
+
+        $old_name = $type->project_type;
+
+        // $type->slug = Str::slug($data['project_type']);
+        $type->update($data);
+
+        return redirect()->route('admin.type.index')->with('message', "Progetto $old_name modificato con successo!");
     }
 
     /**
@@ -83,6 +101,9 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $old_name = $type->project_type;
+        $type->delete();
+
+        return redirect()->route('admin.projects.index')->with('message', "Il progetto $old_name è stato cancellato con successo!");
     }
 }
