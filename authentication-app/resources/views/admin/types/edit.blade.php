@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Aggiungi una nuova categoria</h1>
 
-    <form action="{{ route('admin.type.update') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.types.update', $type) }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">

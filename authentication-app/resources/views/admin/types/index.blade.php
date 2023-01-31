@@ -3,7 +3,7 @@
 @section('content')
 <table class="table">
     
-    <a class="btn btn-primary" href="{{ route('admin.type.create') }}">Aggiungi Progetto</a>
+    <a class="btn btn-primary" href="{{ route('admin.types.create') }}">Aggiungi Progetto</a>
 
     <thead>
       <tr>
@@ -17,9 +17,9 @@
           <th scope="row">{{ $type->project_type }}</th>
           <td>{{ $type->project_type }}</td>
           <td class="d-flex ">
-            <a class="btn btn-warning" href="{{route('admin.type.show', $type->id)}}"><i class="fa-solid fa-eye"></i></a>
-            <a class="btn btn-secondary" href="{{route('admin.type.edit', $type->id)}}"><i class="fa-solid fa-pen"></i></a>
-            <form action="{{route('admin.type.destroy', $type)}}" method="POST">
+            <a class="btn btn-warning" href="{{route('admin.types.show', $type->id)}}"><i class="fa-solid fa-eye"></i></a>
+            <a class="btn btn-secondary" href="{{route('admin.types.edit', $type->id)}}"><i class="fa-solid fa-pen"></i></a>
+            <form action="{{route('admin.types.destroy', $type)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
