@@ -101,7 +101,16 @@
                     <i class="fa-duotone fa-table-list"></i>
                       Lista Progetti
                     </a>
-                  </li>
+                </li>
+                <li class="nav-item">
+                    <a
+                      class="nav-link text-white {{ Route::currentRouteName() == 'admin.type.index' ? 'bg-secondary' : '' }}"
+                      href="{{route('admin.tpe.index')}}"
+                    >
+                    <i class="fa-duotone fa-table-list"></i>
+                      Tipi di Progetto
+                    </a>
+                </li>
               </ul>
             </div>
           </nav>
