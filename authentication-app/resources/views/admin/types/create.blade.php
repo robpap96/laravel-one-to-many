@@ -4,17 +4,20 @@
 <div class="container">
     <h1>Aggiungi una nuova categoria</h1>
 
-    <form action="{{ route('admin.types.store') }}" method="PUT" enctype="multipart/form-data">
+    <form action="{{ route('admin.types.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
-            <label for="project_type" class="form-label">Nuovo Tipo*</label>
-            <input type="text" class="form-control @error('project_type') is-invalid @enderror" id="project_type" name="project_type" maxlength="100" value="{{ old('project_type', $types->project_type) }}" >
-            @error('project_type')
-                <div class="alert alert-danger">
-                    {{$message}}
-                <div>
-            @enderror
+            <label for="type_id">Tipo</label>
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Nome*</label>
+                <input type="text" class="form-control @error('type_id') is-invalid @enderror" id="type_id" name="type_id" maxlength="100" value="{{ old('type_id') }}" >
+                @error('type_id')
+                    <div class="alert alert-danger">
+                        {{$message}}
+                    <div>
+                @enderror
+            </div>
         </div>
 
         <button type="submit" class="btn btn-success">Aggiungi</button>
