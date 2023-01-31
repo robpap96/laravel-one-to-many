@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+{{-- @extends('layouts.admin')
 
 @section('content')
 <table class="table">
@@ -29,4 +29,4 @@
         @endforeach
     </tbody>
   </table>
-@endsection  
+@endsection   --}}

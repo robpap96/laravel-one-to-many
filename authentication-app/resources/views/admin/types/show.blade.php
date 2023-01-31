@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+{{-- @extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -8,4 +8,4 @@
             <h3>Categoria: <a href="{{route('admin.types.show', $type)}}">{{$type->project_type}}</a></h3>
         </div>
     </div>
-@endsection
+@endsection --}}
