@@ -43,18 +43,15 @@ class TypeController extends Controller
      * @param  \App\Http\Requests\StoreTypeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTypeRequest $request)
-    {
+    public function store(StoreTypeRequest $request)  {      
         $data = $request->validated();
-
-        $new_type = new Type();
-        $new_type->fill($data);
-        // $new_type->slug = Str::slug($new_type->project_type);
+        $types = Type::all();
+        $new_type = new Type();      
+        $new_type->fill($data);      
+        // $new_type->slug = Str::slug($new_type->project_type);      
         $new_type->save();
-
-        return redirect()->route('admin.types.index')->with('message', "Progetto $new_type->project_type aggiunto con successo!");
+        return redirect()->route('admin.types.index')->with('message', "Nuovo tipo aggiunto con successo!")->with('types', "types");  
     }
-
     /**
      * Display the specified resource.
      *
