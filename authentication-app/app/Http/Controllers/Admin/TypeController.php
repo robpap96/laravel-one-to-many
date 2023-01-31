@@ -21,7 +21,7 @@ class TypeController extends Controller
     {
         $types = Type::all();
 
-        return view('admin.type.index', compact('types'));
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -31,7 +31,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        return view('admin.type.create');
+        return view('admin.types.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class TypeController extends Controller
         // $new_type->slug = Str::slug($new_type->project_type);
         $new_type->save();
 
-        return redirect()->route('admin.type.index')->with('message', "Progetto $new_type->project_type aggiunto con successo!");
+        return redirect()->route('admin.types.index')->with('message', "Progetto $new_type->project_type aggiunto con successo!");
     }
 
     /**
@@ -60,7 +60,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        return view('admin.type.show', compact('type'));
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -71,7 +71,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        return view('admin.type.edit', compact('type'));
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -90,7 +90,7 @@ class TypeController extends Controller
         // $type->slug = Str::slug($data['project_type']);
         $type->update($data);
 
-        return redirect()->route('admin.type.index')->with('message', "Progetto $old_name modificato con successo!");
+        return redirect()->route('admin.types.index')->with('message', "Progetto $old_name modificato con successo!");
     }
 
     /**
@@ -104,6 +104,6 @@ class TypeController extends Controller
         $old_name = $type->project_type;
         $type->delete();
 
-        return redirect()->route('admin.projects.index')->with('message', "Il progetto $old_name è stato cancellato con successo!");
+        return redirect()->route('admin.types.index')->with('message', "Il progetto $old_name è stato cancellato con successo!");
     }
 }
