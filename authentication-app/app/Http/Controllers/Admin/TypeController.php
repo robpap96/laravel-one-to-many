@@ -73,10 +73,10 @@ class TypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Type $type)
-    {
-        $types = Type::all();
+    {        
+        $types = Type::all();               
         
-        return view('admin.types.edit', compact('types'));
+        return view('admin.types.edit', compact('types', 'type')); 
     }
 
     /**
