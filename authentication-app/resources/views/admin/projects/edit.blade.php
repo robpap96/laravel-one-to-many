@@ -18,7 +18,7 @@
                 <div>
             @enderror
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="type_id">Tipo</label>
             <select class="form-select" name="type_id" id="type_id">
                 <option value="">Nessun Tipo</option>
@@ -26,7 +26,7 @@
                 <option value="{{$type->id}}" {{ old('type_id', $project->type_id) == $type->id ? 'selected' : '' }} >{{$type->project_type}}</option>
                 @endforeach
             </select>
-        </div>
+        </div> --}}
         <div class="mb-3">
             <label for="content" class="form-label">Contenuto*</label>
             <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="10">{{old('content', $project->name)}}</textarea>

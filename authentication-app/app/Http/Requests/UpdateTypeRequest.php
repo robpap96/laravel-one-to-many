@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class UpdateTypeRequest extends FormRequest
 {
@@ -14,7 +13,7 @@ class UpdateTypeRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -25,11 +24,7 @@ class UpdateTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            "project_type" => [
-                "required",
-                Rule::unique('projects')->ignore($this->project),
-                "string"
-            ],
+            //
         ];
     }
 }

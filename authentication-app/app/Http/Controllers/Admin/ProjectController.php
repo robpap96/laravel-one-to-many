@@ -30,8 +30,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+        // $types = Type::all();
+        return view('admin.projects.create');
     }
 
     /**
@@ -44,9 +44,9 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        if( $data['cover_image']) {
-            $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
-        }
+        // if( $data['cover_image']) {
+        //     $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
+        // }
 
         $new_project = new Project();
         $new_project->fill($data);
@@ -75,8 +75,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $types = Type::all();
-        return view('admin.projects.edit', compact('project', 'types'));
+        // $types = Type::all();
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**

@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Faker\Generator as Faker;
 use App\Models\Project;
-use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -22,7 +21,7 @@ class ProjectSeeder extends Seeder
         Project::truncate();
 
         for ($i=0; $i < 20; $i++) { 
-            $type = Type::inRandomOrder()->first();
+            // $type = Type::inRandomOrder()->first();
 
             $new_project = new Project();
             
@@ -33,7 +32,7 @@ class ProjectSeeder extends Seeder
             $new_project->created_on = $faker->datetime();
             $new_project->customer = $faker->name;
             $new_project->private = rand(0,1);
-            $new_project->type_id = $type->id;
+            // $new_project->type_id = $type->id;
 
             $new_project->save();
         }
