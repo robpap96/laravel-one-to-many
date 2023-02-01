@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100)->unique();
             $table->text('content');
-            $table->string('cover_image')->nullable()->default('');
+            $table->string('cover_image')->nullable()->default('0');
             $table->string('slug');
             $table->date('created_on');
             $table->string('customer');

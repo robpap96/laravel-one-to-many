@@ -24,8 +24,8 @@
           <td>{{ $project->created_on }}</td>
           <td>{{ $project->private }}</td>
           <td class="d-flex ">
-            <a class="btn btn-warning" href="{{route('admin.projects.show', $project->id)}}"><i class="fa-solid fa-eye"></i></a>
-            <a class="btn btn-secondary" href="{{route('admin.projects.edit', $project->id)}}"><i class="fa-solid fa-pen"></i></a>
+            <a class="btn btn-warning" href="{{route('admin.projects.show', $project)}}"><i class="fa-solid fa-eye"></i></a>
+            <a class="btn btn-secondary" href="{{route('admin.projects.edit', $project)}}"><i class="fa-solid fa-pen"></i></a>
             <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
                 @csrf
                 @method('DELETE')

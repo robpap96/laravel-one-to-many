@@ -44,15 +44,17 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        // if( $data['cover_image']) {
-        //     $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
-        // }
-
         $new_project = new Project();
         $new_project->fill($data);
         $new_project->slug = Str::slug($new_project->name);
+        
+        if(isset($data['cover_image'])) {
+            $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);
+            $new_project->cover_image = $img_path;
+        }
+        
         $new_project->save();
-
+        
         return redirect()->route('admin.projects.index')->with('message', "Progetto $new_project->name aggiunto con successo!");
     }
 
@@ -95,7 +97,7 @@ class ProjectController extends Controller
         $project->slug = Str::slug($data['name']);
         
         if(isset($data['cover_image'])){
-            Storage::delete($project->cover_image);
+            $img_path = Storage::delete($project->cover_image);
             $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
         }
 
