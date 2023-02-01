@@ -1,4 +1,4 @@
-{{-- @extends('layouts.admin')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -8,19 +8,17 @@
         @csrf
 
         <div class="mb-3">
-            <label for="type_id">Tipo</label>
-            <div class="mb-3">
-                <label for="type_id" class="form-label">Nome*</label>
-                <input type="text" class="form-control @error('type_id') is-invalid @enderror" id="type_id" name="type_id" maxlength="100" value="{{ old('type_id') }}" >
-                @error('type_id')
-                    <div class="alert alert-danger">
-                        {{$message}}
-                    <div>
-                @enderror
-            </div>
+            <label for="name" class="form-label">Nome nuovo Tipo*</label>
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" maxlength="100" value="{{ old('name') }}" >
+            @error('name')
+                <div class="alert alert-danger">
+                    {{$message}}
+                <div>
+            @enderror
         </div>
+
 
         <button type="submit" class="btn btn-success">Aggiungi</button>
     </form>
 </div>
-@endsection --}}
+@endsection
