@@ -18,7 +18,7 @@ class TypeSeeder extends Seeder
     public function run()
     {
         // Schema::disableForeignKeyConstraints();
-        // Type::truncate();
+        Type::truncate();
         // Schema::enableForeingKeyConstraints();
 
         $types = ['Frontend','Backend','Devops'];
@@ -26,7 +26,7 @@ class TypeSeeder extends Seeder
             $new_type = new Type();
 
             $new_type->name = $type;
-            $new_type->slug = Str::slug($new_type->name);
+            $new_type->slug = Str::slug($new_type->name, '-');
 
             $new_type->save(); 
         }
