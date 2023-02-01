@@ -1,4 +1,4 @@
-{{-- @extends('layouts.admin')
+@extends('layouts.admin')
 
 @section('content')
 <table class="table">
@@ -14,11 +14,11 @@
     <tbody>
         @foreach ($types as $type)
         <tr>
-          <th scope="row">{{ $type->project_type }}</th>
-          <td>{{ $type->project_type }}</td>
+          <th scope="row">{{ $type->name}}</th>
+          <td>{{ $type->name }}</td>
           <td class="d-flex ">
-            <a class="btn btn-warning" href="{{route('admin.types.show', $type->id)}}"><i class="fa-solid fa-eye"></i></a>
-            <a class="btn btn-secondary" href="{{route('admin.types.edit', $type->id)}}"><i class="fa-solid fa-pen"></i></a>
+            <a class="btn btn-warning" href="{{route('admin.types.show', $type)}}"><i class="fa-solid fa-eye"></i></a>
+            <a class="btn btn-secondary" href="{{route('admin.types.edit', $type)}}"><i class="fa-solid fa-pen"></i></a>
             <form action="{{route('admin.types.destroy', $type)}}" method="POST">
                 @csrf
                 @method('DELETE')
@@ -29,4 +29,4 @@
         @endforeach
     </tbody>
   </table>
-@endsection   --}}
+@endsection  
