@@ -1,23 +1,25 @@
-{{-- @extends('layouts.admin')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
     <h1>Aggiungi una nuova categoria</h1>
 
-    <form action="{{ route('admin.types.update', $type) }}" method="PUT" enctype="multipart/form-data">
+    <form action="{{ route('admin.types.update', $type) }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+        @method('PUT')
+
         <div class="mb-3">
-            <label for="type_id">Tipo</label>
-            <select class="form-select" name="type_id" id="type_id">
-                <option value="">Nessun Tipo</option>
-                @foreach ($types as $t)
-                    <option value="{{$t->id}}" {{ old('type_id') == $t->id ? 'selected' : '' }} >{{$t->project_type}}</option>
-                @endforeach
-            </select>
+            <label for="name" class="form-label">Tipo*</label>
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" maxlength="100" value="{{ old('name', $type->name) }}" >
+            @error('name')
+                <div class="alert alert-danger">
+                    {{$message}}
+                <div>
+            @enderror
         </div>
 
-        <button type="submit" class="btn btn-success">Aggiungi</button>
+        <button type="submit" class="btn btn-success">Accetta Modifica</button>
     </form>
 </div>
-@endsection --}}
+@endsection
